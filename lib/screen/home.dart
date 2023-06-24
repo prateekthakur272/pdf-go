@@ -7,53 +7,29 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("PDF Go"),
-        centerTitle: true,
-      ),
-      body: Center(
-          child: GridView.count(
-        crossAxisCount: 3,
-        childAspectRatio: 1,
-        children: [
-          HomeItem(
-            title: 'Merge PDFs',
-            image: Image.network(
-                'https://img.freepik.com/free-icon/pdf_318-310834.jpg'),
-            onClick: () {},
+        body: Center(
+      child: CustomScrollView(
+        slivers: [
+          SliverAppBar(
+            snap: true,
+            floating: true,
+            expandedHeight: MediaQuery.of(context).size.height * .2,
+            flexibleSpace: const FlexibleSpaceBar(
+              title: Text('PDf Go'),
+            ),
           ),
-          HomeItem(
-            title: 'Merge PDFs',
-            image: Image.network(
-                'https://img.freepik.com/free-icon/pdf_318-310834.jpg'),
-            onClick: () {},
-          ),
-          HomeItem(
-            title: 'Merge PDFs',
-            image: Image.network(
-                'https://img.freepik.com/free-icon/pdf_318-310834.jpg'),
-            onClick: () {},
-          ),
-          HomeItem(
-            title: 'Merge PDFs',
-            image: Image.network(
-                'https://img.freepik.com/free-icon/pdf_318-310834.jpg'),
-            onClick: () {},
-          ),
-          HomeItem(
-            title: 'Merge PDFs',
-            image: Image.network(
-                'https://img.freepik.com/free-icon/pdf_318-310834.jpg'),
-            onClick: () {},
-          ),
-          HomeItem(
-            title: 'Merge PDFs',
-            image: Image.network(
-                'https://img.freepik.com/free-icon/pdf_318-310834.jpg'),
-            onClick: () {},
-          ),
+          SliverGrid.count(
+            crossAxisCount: 3,
+            children: [
+              HomeItem(
+                  title: 'Image to PDF',
+                  image: Image.network(
+                      'https://img.freepik.com/free-icon/pdf_318-310834.jpg'),
+                  onClick: () {}),
+            ],
+          )
         ],
-      )),
-    );
+      ),
+    ));
   }
 }
