@@ -51,6 +51,32 @@ class Home extends StatelessWidget {
                       }
                     });
                   }),
+              HomeItem(
+                  title: 'Merge PDFs',
+                  image: Image.network(
+                      'https://img.freepik.com/free-icon/pdf_318-310834.jpg'),
+                  onClick: () {
+                    FilePicker.platform
+                        .pickFiles(allowMultiple: true)
+                        .then((result) {
+                      if (result != null) {
+                        PDF
+                            .mergePDFs(result.files
+                                .map((file) => file.path.toString())
+                                .toList())
+                            .then((success) {
+                          if (!success) {
+                            showSnackbar(
+                                context: context,
+                                content: 'Some error occured');
+                          }
+                        });
+                      } else {
+                        showSnackbar(
+                            context: context, content: 'No files selected');
+                      }
+                    });
+                  })
             ],
           )
         ],

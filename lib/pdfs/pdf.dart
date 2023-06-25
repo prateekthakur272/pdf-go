@@ -14,9 +14,20 @@ class PDF {
       await OpenFile.open(output);
       File(output).delete();
       return true;
-    } else {
-      return false;
     }
+    return false;
+  }
+
+  static Future<bool> mergePDFs(List<String> paths) async {
+    final output = await outputPath();
+    MergeMultiplePDFResponse response =
+        await PdfMerger.mergeMultiplePDF(paths: paths, outputDirPath: output);
+    if (response.status == 'success') {
+      await OpenFile.open(output);
+      File(output).delete();
+      return true;
+    }
+    return false;
   }
 
   static Future<String> outputPath() async {
