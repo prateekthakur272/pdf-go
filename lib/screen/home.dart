@@ -28,8 +28,7 @@ class Home extends StatelessWidget {
             children: [
               HomeItem(
                   title: 'Image to PDF',
-                  image: Image.network(
-                      'https://img.freepik.com/free-icon/pdf_318-310834.jpg'),
+                  image: Image.asset('assets/pdf.png'),
                   onClick: () async {
                     FilePicker.platform
                         .pickFiles(type: FileType.image, allowMultiple: true)
@@ -54,8 +53,7 @@ class Home extends StatelessWidget {
                   }),
               HomeItem(
                   title: 'Merge PDFs',
-                  image: Image.network(
-                      'https://img.freepik.com/free-icon/pdf_318-310834.jpg'),
+                  image: Image.asset('assets/pdf_merged.png'),
                   onClick: () {
                     FilePicker.platform.pickFiles(
                         allowMultiple: true,
@@ -81,8 +79,7 @@ class Home extends StatelessWidget {
                   }),
               HomeItem(
                   title: 'PDF to Image',
-                  image: Image.network(
-                      'https://img.freepik.com/free-icon/pdf_318-310834.jpg'),
+                  image: Image.asset('assets/image.png'),
                   onClick: () {
                     FilePicker.platform.pickFiles(
                         allowMultiple: false,
@@ -106,8 +103,7 @@ class Home extends StatelessWidget {
                   }),
               HomeItem(
                   title: 'File info',
-                  image: Image.network(
-                      'https://img.freepik.com/free-icon/pdf_318-310834.jpg'),
+                  image: Image.asset('assets/info.png'),
                   onClick: () async {
                     FilePicker.platform.pickFiles(
                         allowMultiple: false,
