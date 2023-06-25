@@ -30,6 +30,18 @@ class PDF {
     return false;
   }
 
+  static Future<bool> imageFromPDF(String path) async {
+    final output = await outputPath();
+    CreateImageFromPDFResponse response = await PdfMerger.createImageFromPDF(
+        path: path, outputDirPath: output, createOneImage: true);
+    if (response.status == 'success') {
+      await OpenFile.open(output);
+      File(output).delete();
+      return true;
+    }
+    return false;
+  }
+
   static Future<String> outputPath() async {
     return '${(await getTemporaryDirectory()).path}${DateTime.now()}.pdf';
   }

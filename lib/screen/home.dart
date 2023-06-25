@@ -2,6 +2,7 @@ import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:pdf_go/constants_and_methods.dart';
 import 'package:pdf_go/pdfs/pdf.dart';
+import 'package:pdf_go/screen/file_info.dart';
 import 'package:pdf_go/widgets/home_item.dart';
 
 class Home extends StatelessWidget {
@@ -56,9 +57,10 @@ class Home extends StatelessWidget {
                   image: Image.network(
                       'https://img.freepik.com/free-icon/pdf_318-310834.jpg'),
                   onClick: () {
-                    FilePicker.platform
-                        .pickFiles(allowMultiple: true)
-                        .then((result) {
+                    FilePicker.platform.pickFiles(
+                        allowMultiple: true,
+                        type: FileType.custom,
+                        allowedExtensions: ['pdf']).then((result) {
                       if (result != null) {
                         PDF
                             .mergePDFs(result.files
@@ -71,6 +73,52 @@ class Home extends StatelessWidget {
                                 content: 'Some error occured');
                           }
                         });
+                      } else {
+                        showSnackbar(
+                            context: context, content: 'No files selected');
+                      }
+                    });
+                  }),
+              HomeItem(
+                  title: 'PDF to Image',
+                  image: Image.network(
+                      'https://img.freepik.com/free-icon/pdf_318-310834.jpg'),
+                  onClick: () {
+                    FilePicker.platform.pickFiles(
+                        allowMultiple: false,
+                        type: FileType.custom,
+                        allowedExtensions: ['pdf']).then((result) {
+                      if (result != null) {
+                        PDF
+                            .imageFromPDF(result.files.first.toString())
+                            .then((success) {
+                          if (!success) {
+                            showSnackbar(
+                                context: context,
+                                content: 'Some error occured');
+                          }
+                        });
+                      } else {
+                        showSnackbar(
+                            context: context, content: 'No files selected');
+                      }
+                    });
+                  }),
+              HomeItem(
+                  title: 'File info',
+                  image: Image.network(
+                      'https://img.freepik.com/free-icon/pdf_318-310834.jpg'),
+                  onClick: () async {
+                    FilePicker.platform.pickFiles(
+                        allowMultiple: false,
+                        type: FileType.custom,
+                        allowedExtensions: ['pdf']).then((result) {
+                      if (result != null) {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    FileInfo(file: result.files.first)));
                       } else {
                         showSnackbar(
                             context: context, content: 'No files selected');
