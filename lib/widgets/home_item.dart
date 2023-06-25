@@ -13,11 +13,6 @@ class HomeItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      clipBehavior: Clip.hardEdge,
-      shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(8),
-          side: const BorderSide(color: Colors.grey)),
-      elevation: 0,
       child: InkWell(
         onTap: onClick,
         child: Padding(
