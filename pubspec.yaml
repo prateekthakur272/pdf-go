@@ -39,6 +39,7 @@ dependencies:
   pdf_merger: ^0.0.6
   path_provider: ^2.0.15
   open_file: ^3.3.2
+  flutter_launcher_icons: ^0.13.1
 
 dev_dependencies:
   flutter_test:
@@ -64,6 +65,12 @@ flutter:
 
   assets:
     [assets/]
+
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: 'assets/launcher.png'
 
   # To add assets to your application, add an assets section, like this:
   # assets:
