@@ -1,16 +1,23 @@
-# pdf_go
+# 📄 pdf_go
+Android and ios PDF utility app, this app provides features like merge more than one pdf into one, convert images to pdf etc.
 
-A new Flutter project.
+![4](https://github.com/prateekthakur272/pdf-go/assets/67188426/596ec52d-99e9-47c5-854f-2dbb9b5fa4ff)
 
-## Getting Started
+## 📱 Top features
+<ul>
+  <li>Image to PDF</li>
+  <li>Merge PDFs</li>
+  <li>PDF to Image</li>
+  <li>PDF properties</li>
+</ul>
 
-This project is a starting point for a Flutter application.
+## 💻 Tech Stack
+Built with Flutter
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 📦 Pub Packages
+<ul>
+  <li>pdf_merger</li>
+  <li>file_picker</li>
+  <li>open_file</li>
+  <li>path_provider</li>
+</ul>
